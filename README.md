@@ -143,6 +143,27 @@ a /= 1
 a %= 1
 ```
 
+## 배열
+
+```swift
+var shoppingList = ["catfish", "water", "tulips", "blue paint"]
+shoppingList[1] = "bottle of water"
+
+let emptyArray = [String]()
+```
+
+## 딕셔너리
+
+```swift
+var occupations = [
+    "Malcolm": "Captain",
+    "Kaylee": "Mechanic",
+]
+occupations["Jayne"] = "Public Relations"
+
+let emptyDictionary = [String: Float]()
+```
+
 ## 반복문
 
 ```swift
@@ -171,4 +192,29 @@ while n < 10 {
   n = n + 1
 }
 print("\(n)")
+```
+
+```swift
+var m = 2
+repeat {
+    m *= 2
+} while m < 100
+print(m)
+```
+
+```swift
+let interestingNumbers = [
+    "Prime": [2, 3, 5, 7, 11, 13],
+    "Fibonacci": [1, 1, 2, 3, 5, 8],
+    "Square": [1, 4, 9, 16, 25],
+]
+var largest = 0
+for (kind, numbers) in interestingNumbers {
+    for number in numbers {
+        if number > largest {
+            largest = number
+        }
+    }
+}
+print(largest)
 ```
