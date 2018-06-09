@@ -143,28 +143,9 @@ a /= 1
 a %= 1
 ```
 
-## 배열
-
-```swift
-var shoppingList = ["catfish", "water", "tulips", "blue paint"]
-shoppingList[1] = "bottle of water"
-
-let emptyArray = [String]()
-```
-
-## 딕셔너리
-
-```swift
-var occupations = [
-    "Malcolm": "Captain",
-    "Kaylee": "Mechanic",
-]
-occupations["Jayne"] = "Public Relations"
-
-let emptyDictionary = [String: Float]()
-```
-
 ## 반복문
+
+- for in 구문
 
 ```swift
 for i in 1 ... 10 {
@@ -186,6 +167,8 @@ for i in 1 ... 10 {
 }
 ```
 
+- while 구문
+
 ```swift
 var n = 1
 while n < 10 {
@@ -193,6 +176,8 @@ while n < 10 {
 }
 print("\(n)")
 ```
+
+- repeat while 구문
 
 ```swift
 var m = 2
@@ -202,19 +187,149 @@ repeat {
 print(m)
 ```
 
+## 조건문
+
+- if else 구문
+
 ```swift
-let interestingNumbers = [
-    "Prime": [2, 3, 5, 7, 11, 13],
-    "Fibonacci": [1, 1, 2, 3, 5, 8],
-    "Square": [1, 4, 9, 16, 25],
-]
-var largest = 0
-for (kind, numbers) in interestingNumbers {
-    for number in numbers {
-        if number > largest {
-            largest = number
-        }
-    }
+var adult = 19
+var age = 21
+
+if age < adult {
+  print("당신은 미성년자!")
 }
-print(largest)
+
+if age >= adult {
+  print("당신은 성년자!")
+}
+```
+
+```swift
+var adult = 19
+var age = 21
+
+if age < adult {
+  print("당신은 미성년자!")
+} else {
+  print("당신은 성년자!")
+}
+```
+
+```swfit
+var adult = 19
+var age = 21
+var gender = "M"
+
+if age < adult {
+  if gender  == "M" {
+    print("당신은 남자 미성년자!")
+  } else {
+    print("당신은 여자 미성년자!")
+  }
+} else {
+  if gender  == "M" {
+    print("당신은 남자 성년자!")
+  } else {
+    print("당신은 여자 성년자!")
+  }
+}
+```
+
+```swift
+if gender == "M" {
+  print("남자")
+} else if gender == "F" {
+  print("여자")
+} else {
+  print("남자도 여자도 아님")
+}
+```
+
+- guard 구문
+
+```swift
+func divide(base: Int) {
+  guard base != 0 else {
+    print("0으로 나눌 수 없습니다")
+    return
+  }
+
+  let result = 100 / base
+  print(result)
+}
+```
+
+- switch 구문
+
+```swift
+let val = 2
+
+switch val {
+  case 1 :
+    print("1이다")
+  case 2 :
+    print("2이다")
+  case 3 :
+    print("3이다")
+  default:
+    print("모르겠다")
+}
+```
+
+- break 구문
+
+```swift
+for row in 0...5 {
+  if row > 2 {
+    break
+  }
+  print("\(row) 실행")
+}
+```
+
+- continue 구문
+
+```swift
+for row in 0...5 {
+  if row > 2 {
+    continue
+  }
+  print("\(row) 실행")
+}
+```
+
+## 배열
+
+```swift
+var shoppingList = ["catfish", "water", "tulips", "blue paint"]
+shoppingList[1] = "bottle of water"
+
+let emptyArray = [String]()
+
+for item in shoppingList {
+  print("아이템: \(item)")
+}
+```
+
+- 추가
+
+```swift
+var cities = [String]()
+
+cities.append("Seoul")
+cities.append("New York")
+cities.insert("Tokyo", at: 1)
+cities.append(contentsOf: ["Dubai", "Sydney"])
+```
+
+## 딕셔너리
+
+```swift
+var occupations = [
+    "Malcolm": "Captain",
+    "Kaylee": "Mechanic",
+]
+occupations["Jayne"] = "Public Relations"
+
+let emptyDictionary = [String: Float]()
 ```
