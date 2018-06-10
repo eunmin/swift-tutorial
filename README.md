@@ -301,14 +301,34 @@ for row in 0...5 {
 ## 배열
 
 ```swift
-var shoppingList = ["catfish", "water", "tulips", "blue paint"]
-shoppingList[1] = "bottle of water"
+var cities = ["Seoul", "New York", "LA", "Santiago"]
 
-let emptyArray = [String]()
+cities[0]
+cities[1]
+cities[10]
+cities.count
 
-for item in shoppingList {
-  print("아이템: \(item)")
+let length = cities.count
+
+for i in 0..<length {
+  print("\(i)번째 배열 원소는 \(cities[i])입니다.")
 }
+
+for city in cities {
+  print("배열 원소는 \(city)입니다.")
+}
+```
+
+- 초기화
+
+```swift
+var cities = [String]()
+
+var cities = [String]
+
+cities = []
+
+cities.isEmpty
 ```
 
 - 추가
@@ -322,14 +342,237 @@ cities.insert("Tokyo", at: 1)
 cities.append(contentsOf: ["Dubai", "Sydney"])
 ```
 
+```swift
+cities[0...2]
+```
+
+## 집합 (Set)
+
+```swift
+var genres : Set = ["Classic", "Rock", "Balad"]
+
+genres.contains("Rock")
+```
+
+## 튜플
+
+```swift
+var t = (100, 200)
+
+var t : (Int, Int) = (100, 200)
+
+t.0
+t.1
+
+var (x, y) = t
+x
+y
+
+var (x, _) = t
+x
+```
+
 ## 딕셔너리
 
 ```swift
-var occupations = [
-    "Malcolm": "Captain",
-    "Kaylee": "Mechanic",
-]
-occupations["Jayne"] = "Public Relations"
+var capital = ["KR":"Seoul", "EN":"London", "FR":"Paris"]
 
-let emptyDictionary = [String: Float]()
+capital["KR"]
+
+capital["XX"]
+
+var c = capital["XX"] // Optional(String)
+
+c?.capitalized
+```
+
+- 초기화
+
+```swift
+var capital = [String : String]()
+
+var capital : [String : String]
+
+capital = [:]
+
+capital.isEmpty
+```
+
+- 값 추가
+
+```swift
+capital["JP"] = "Tokyo"
+```
+
+- 순회 탐색
+
+```swift
+for row in capital {
+  let (k, v) = row
+  print("키는 \(k), 값은 \(v)입니다.")
+}
+
+for (k, v) in capital {
+  print("키는 \(k), 값은 \(v)입니다.")
+}
+```
+
+## 옵셔널
+
+```swift
+let num = Int("123")
+
+let num = Int("Swift")
+
+num + 1
+```
+
+- 옵셔널 타입 선언하기
+
+```swift
+var num : Int
+
+num = 1
+
+num = nil
+
+var num : Int?
+
+num = nil
+
+var cites : [String]?
+```
+
+- 옵셔널 값 사용하기 (unwrapping)
+
+```swift
+var num : Int? = 1
+
+num! + 1
+
+var num : Int? = nil
+
+num! + 1
+
+if num != nil {
+  var result = num! + 1
+  print("결과는 \(result) 입니다.")
+} else {
+  print("실패!")
+}
+
+var str = "1"
+
+if let num = Int(str) {
+  var result = num! + 1
+  print("결과는 \(result) 입니다.")
+} else {
+  print("실패!")
+}
+```
+
+- 옵셔널 자동 해제
+
+```swift
+var num : Int? = nil
+
+if num == 2 {
+
+}
+```
+
+- 해제를 신경 안써도 되는 옵셔널 타입
+
+형식상 옵셔널로 정의해야 하지만, 실제로 사용할 때는 절 때 nil 값이 대입될 가능성이 없는 변수 일때
+
+```swift
+var num : Int! = 1
+
+num + 1
+```
+
+## 함수
+
+- 함수 만들기
+
+```swift
+func 함수명(매개변수1: 타입, 매개변수2: 타입 ...) -> 반환타입 {
+  내용
+  내용
+  ...
+  return 반환값
+}
+```
+
+```swift
+func s0110() {
+  print("사당역 5번 출구")
+}
+
+s0110()
+```
+
+```swift
+func printHello() {
+  print("안녕하세요")
+}
+
+func getHello() -> String {
+  return "안녕하세요"
+}
+
+func printHelloWithName(name: String) {
+  println("\(name)님, 안녕하세요")
+}
+
+func getHelloWithName(name: String) -> String {
+  return "\(name)님, 안녕하세요"
+}
+
+printHelloWithName(name: "뭉뭉이")
+
+func add(x: Int, y: Int) -> Int {
+  return x + y
+}
+
+add(x: 1, y: 2)
+
+add(x:y:)(1, 2)
+
+func add(a x: Int, b y: Int) -> Int {
+  return x + y
+}
+
+add(a: 1, b: 2)
+
+func add(_ x: Int, _ y: Int) -> Int {
+  return x + y
+}
+
+add(1, 2)
+```
+
+## 타입 엘리어스
+
+```swift
+typealias UserName = String
+
+var x : UserName
+
+x = "뭉뭉이"
+
+typealias Point = (Int, Int)
+```
+
+## 변수의 범위
+
+```swift
+var a = 1
+
+if a == 1 {
+    var a = 2
+    print(a)
+}
+
+print(a)
 ```
