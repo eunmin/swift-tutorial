@@ -576,3 +576,67 @@ if a == 1 {
 
 print(a)
 ```
+
+## 클래스
+
+```swift
+var user1 = ["name" : "깡총이", "type" : "토끼"]
+user1["name"]
+user1["type"]
+user1["tpye"]
+
+func isKing(user : [String : String]) -> Bool {
+    return user["type"] == "토끼"
+}
+
+isKing(user: user1)
+```
+
+```swfit
+class User {
+    var name : String
+    var type : String
+
+    init(name : String, type : String) {
+        self.name = name
+        self.type = type
+    }
+    func isKing() -> Bool {
+        return type == "토끼"
+    }
+}
+
+var user2 = User(name: "깡총이", type: "토끼")
+user2.name
+user2.type
+
+user2.isKing()
+```
+
+- 상속
+
+```swift
+class Admin : User {
+    var role : String?
+
+    init(name : String, type : String, role : String) {
+        super.init(name: name, type: type)
+        self.role = role
+    }
+
+    func isSuper() -> Bool {
+        return role == "super"
+    }
+
+    override func isKing() -> Bool {
+        return true;
+    }
+}
+
+var user3 = Admin(name: "호호호", type: "호랑이", role: "super")
+
+user3.name
+user3.type
+user3.isKing()
+user3.isSuper()
+```
