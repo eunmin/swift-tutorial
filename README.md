@@ -324,7 +324,7 @@ for city in cities {
 ```swift
 var cities = [String]()
 
-var cities = [String]
+var cities : [String]
 
 cities = []
 
