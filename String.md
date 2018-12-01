@@ -45,6 +45,9 @@ let s2 : String = String(s[from...to])
 ```swift
 let s = "안녕 세상아"
 let arr = Array(s) // ["안", "녕", " ", "세", "상", "아"]
+
+// 배열을 다시 문자열로 만들기
+let s2 = String(arr)
 ```
 
 ## 문자열 바꾸기 
